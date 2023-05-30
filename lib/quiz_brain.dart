@@ -12,11 +12,13 @@ class QuizzBrain {
 
   int _queNo = 0;
 
+
+
   get context => null;
   void questionNo() {
 
       if(_queNo >= _questionBank.length-1){
-
+        print("test");
         _queNo = 0;
 
       }else{
