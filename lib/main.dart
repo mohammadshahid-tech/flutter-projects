@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzerapp/question.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quiz_brain.dart';
 
@@ -39,6 +40,9 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAns(bool userpickedAns) {
     setState(() {
+      if(quizzBrain.isEndOFList()){
+        Alert(context: context, title: "RFLUTTER", desc: "Boka c").show();
+      }
       var checkque = quizzBrain.getQuestionAns();
       quizzBrain.questionNo();
       if (checkque == userpickedAns) {
@@ -90,7 +94,6 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-
                 checkAns(true);
               },
               child: Text(
@@ -109,6 +112,7 @@ class _QuizPageState extends State<QuizPage> {
                 textStyle: TextStyle(color: Colors.white),
               ),
               onPressed: () {
+
                 checkAns(false);
               },
               child: Text(
@@ -124,7 +128,6 @@ class _QuizPageState extends State<QuizPage> {
         // TODO:Add a row here as score keeper
         Flexible(
           child: Row(
-
             children: scoreKeeper,
           ),
         )

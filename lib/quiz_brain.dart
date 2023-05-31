@@ -16,16 +16,16 @@ class QuizzBrain {
 
   get context => null;
   void questionNo() {
-
       if(_queNo >= _questionBank.length-1){
-        print("test");
         _queNo = 0;
-
       }else{
         _queNo++;
       }
-
     print(_queNo);
+  }
+
+  bool isEndOFList(){
+    return _queNo >= _questionBank.length -1;
   }
 
   String getQuestionText() {
